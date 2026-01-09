@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurantapp/features/cart/screens/cart_screen.dart';
@@ -18,41 +17,78 @@ class SelectServiceTypePopup extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          height: 15.h,
-        ),
+        SizedBox(height: 16.h),
         Text(
           "Please Select a service type",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        10.verticalSpace,
+        SizedBox(height: 20.h),
         if (isDeliveryEnabled)
-          CupertinoListTile(
+          _ServiceOption(
+            title: "Delivery",
+            icon: Icons.delivery_dining,
             onTap: () {
-              Navigator.of(context).pop(
-                ServiceType.delivery,
-              );
+              Navigator.of(context).pop(ServiceType.delivery);
             },
-            title: const Text("Delivery"),
-            trailing: const Icon(
-              Icons.keyboard_arrow_right,
-            ),
           ),
-        if (isDeliveryEnabled && isCollectionEnabled) const Divider(),
+        if (isDeliveryEnabled && isCollectionEnabled) SizedBox(height: 12.h),
         if (isCollectionEnabled)
-          CupertinoListTile(
+          _ServiceOption(
+            title: "Collection",
+            icon: Icons.store,
             onTap: () {
-              Navigator.of(context).pop(
-                ServiceType.collection,
-              );
+              Navigator.of(context).pop(ServiceType.collection);
             },
-            title: const Text("Collection"),
-            trailing: const Icon(
-              Icons.keyboard_arrow_right,
-            ),
           ),
-        10.verticalSpace,
+        SizedBox(height: 16.h),
       ],
+    );
+  }
+}
+
+class _ServiceOption extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final VoidCallback onTap;
+
+  const _ServiceOption({
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8.r),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 4.w),
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                color: Theme.of(context).primaryColor,
+                size: 24.sp,
+              ),
+              SizedBox(width: 16.w),
+              Expanded(
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+              Icon(
+                Icons.chevron_right,
+                color: Colors.grey[400],
+                size: 20.sp,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
