@@ -70,6 +70,7 @@ class AppStatusModel {
   AppStatusModel.fromJson(Map<String, dynamic> json) {
     cashOnDelivery = json['cash_on_delivery'];
     paymentStripe = json['payment_mstripe'];
+
     deliveryEnabled = json['delivery_enabled'];
     collectionEnabled = json['collection_enabled'];
     tableReservation = json['table_reservation'];

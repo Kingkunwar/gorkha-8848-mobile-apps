@@ -22,6 +22,7 @@ import 'package:restaurantapp/features/profile/screens/profile_screen.dart';
 import 'package:restaurantapp/features/select_items/screen/select_items_screen.dart';
 import 'package:restaurantapp/features/settings/screen/settings_screen.dart';
 import 'package:restaurantapp/features/table_reservation/models/reservation_model.dart';
+import 'package:restaurantapp/features/table_reservation/models/reservation_success_model.dart';
 import 'package:restaurantapp/features/table_reservation/screens/confirm_reservation_screen.dart';
 import 'package:restaurantapp/features/table_reservation/screens/reservation_success_screen.dart';
 import 'package:restaurantapp/features/table_reservation/screens/table_reservation_screen.dart';
@@ -144,7 +145,9 @@ class RouteGenerator {
         );
       case AppRoutes.reservationSuccessScreen:
         return CupertinoPageRoute(
-          builder: (context) => const ReservationSuccessScreen(),
+          builder: (context) => ReservationSuccessScreen(
+            reservation: arguments as ReservationSuccessModel,
+          ),
         );
       default:
         return CupertinoPageRoute(

@@ -104,11 +104,10 @@ class _ConfirmReservationScreenState extends State<ConfirmReservationScreen> {
                     );
                     response.fold(
                       (l) {
-                        showToast("Reservation successful.");
                         Navigator.of(context).pushNamedAndRemoveUntil(
                           AppRoutes.reservationSuccessScreen,
                           (route) => false,
-                          arguments: l,
+                          arguments: widget.reservation,
                         );
                       },
                       (r) => showErrorToast(
