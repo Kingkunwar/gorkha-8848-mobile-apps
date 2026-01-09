@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "sapanahome.co.uk",
+      "sha256_cert_fingerprints": [
+        "74:D0:4D:9C:5C:70:CD:D1:E2:5A:B3:EB:37:39:EA:58:91:F6:D1:B3:22:0B:07:23:0B:17:8A:5E:D2:42:0F:AC"
+      ]
+    }
+  }
+]

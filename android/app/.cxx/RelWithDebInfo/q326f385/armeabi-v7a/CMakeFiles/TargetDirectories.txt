@@ -1,0 +1,2 @@
+/Users/ankeetkarki/w3web/gurkha_kitchen/GingerSpices-Apps/android/app/.cxx/RelWithDebInfo/q326f385/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/ankeetkarki/w3web/gurkha_kitchen/GingerSpices-Apps/android/app/.cxx/RelWithDebInfo/q326f385/armeabi-v7a/CMakeFiles/rebuild_cache.dir
