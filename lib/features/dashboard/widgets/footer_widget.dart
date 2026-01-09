@@ -27,7 +27,23 @@ class FooterWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Divider(),
+        // Decorative divider with restaurant styling
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 40.w),
+          height: 1,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.transparent,
+                isBlacked
+                    ? Colors.grey.withOpacity(0.5)
+                    : Colors.white.withOpacity(0.3),
+                Colors.transparent,
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: 20.h),
         ScreenPadding(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -48,21 +64,40 @@ class FooterWidget extends StatelessWidget {
                         );
                       }
                     },
-                    child: Text(
-                      e.keys.first,
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: isBlacked ? null : Colors.white,
-                            fontWeight: FontWeight.bold,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15.w,
+                        vertical: 8.h,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: isBlacked
+                                ? Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.3)
+                                : Colors.white.withOpacity(0.3),
+                            width: 1.5,
                           ),
+                        ),
+                      ),
+                      child: Text(
+                        e.keys.first,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: isBlacked
+                                  ? null
+                                  : Colors.white.withOpacity(0.9),
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 0.5,
+                            ),
+                      ),
                     ),
                   ),
                 )
                 .toList(),
           ),
         ),
-        SizedBox(
-          height: 10.h,
-        ),
+        SizedBox(height: 15.h),
       ],
     );
   }

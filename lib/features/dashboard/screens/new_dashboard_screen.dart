@@ -38,6 +38,7 @@ class _NewDashboardScreenState extends State<NewDashboardScreen> {
   Widget _body(AppStatusModel appStatus) {
     return Stack(
       children: [
+        // Background with restaurant ambiance
         Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -49,39 +50,55 @@ class _NewDashboardScreenState extends State<NewDashboardScreen> {
           ),
           child: BackdropFilter(
             filter: ImageFilter.blur(
-              sigmaX: 5.0,
-              sigmaY: 5.0,
+              sigmaX: 3.0,
+              sigmaY: 3.0,
             ),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.6),
+                    Colors.black.withOpacity(0.7),
+                    Colors.black.withOpacity(0.75),
+                  ],
+                ),
               ),
             ),
           ),
         ),
-        // Image.asset(
-        //   AssetSource.dashboardBackground,
-        //   fit: BoxFit.cover,
-        //   height: 1.sh,
-        // ),
-        Column(
-          children: [
-            const FcpAppbarWidget(),
-            kToolbarHeight.verticalSpace,
-            const Spacer(),
-            Builder(builder: (context) {
-              AppStatusModel status = appStatus;
-              return IntroWidget(
-                isCollectionEnabled: status.collectionEnabled == true,
-                isDeliveryEnabled: status.deliveryEnabled == true,
-                isTableReservationEnabled:
-                    status.tableReservation.toString() == "1",
-              );
-            }),
-            FooterWidget(
-              isBlacked: false,
-            ),
-          ],
+        // Main content
+        SafeArea(
+          child: Column(
+            children: [
+              const FcpAppbarWidget(),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20.h),
+                      // Welcome section with restaurant styling
+                      Builder(builder: (context) {
+                        AppStatusModel status = appStatus;
+                        return IntroWidget(
+                          isCollectionEnabled: status.collectionEnabled == true,
+                          isDeliveryEnabled: status.deliveryEnabled == true,
+                          isTableReservationEnabled:
+                              status.tableReservation.toString() == "1",
+                        );
+                      }),
+                      SizedBox(height: 30.h),
+                      FooterWidget(
+                        isBlacked: false,
+                      ),
+                      SizedBox(height: 20.h),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

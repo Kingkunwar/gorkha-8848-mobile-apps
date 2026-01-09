@@ -7,11 +7,13 @@ class PrimaryButton extends StatelessWidget {
   final Function()? onTap;
   final String buttonTitle;
   final Color? buttonBackgroundColor;
+  final EdgeInsets? padding;
   const PrimaryButton({
     super.key,
     this.isWidthLimited = false,
     required this.buttonTitle,
     this.buttonBackgroundColor,
+    this.padding,
     this.onTap,
   });
 
@@ -24,10 +26,11 @@ class PrimaryButton extends StatelessWidget {
         }
       },
       child: Container(
-        padding: EdgeInsets.symmetric(
-          vertical: 8.w,
-          horizontal: 20.w,
-        ),
+        padding: padding ??
+            EdgeInsets.symmetric(
+              vertical: 8.h,
+              horizontal: 20.w,
+            ),
         decoration: BoxDecoration(
           color: buttonBackgroundColor ?? Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(50.r),
@@ -38,6 +41,8 @@ class PrimaryButton extends StatelessWidget {
           buttonTitle,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: Colors.white,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 1.2,
               ),
         ),
       ),
