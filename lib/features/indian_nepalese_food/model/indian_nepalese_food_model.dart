@@ -68,6 +68,7 @@ class SubItem {
   int? printAll;
   int? printIgnore;
   List<SubPrices>? prices;
+  String? imageUrl;
 
   SubItem({
     this.id,
@@ -90,6 +91,7 @@ class SubItem {
     this.printAll,
     this.printIgnore,
     this.prices,
+    this.imageUrl,
   });
 
   SubItem.fromJson(Map<String, dynamic> json) {
@@ -118,6 +120,7 @@ class SubItem {
         prices!.add(SubPrices.fromJson(v));
       });
     }
+    imageUrl = json['image_url'];
   }
 }
 

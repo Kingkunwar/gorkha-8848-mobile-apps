@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurantapp/app/custom_widgets/fcp_appbar.dart';
 import 'package:restaurantapp/app/custom_widgets/screen_padding.dart';
+import 'package:restaurantapp/app/routes/app_routes.dart';
 import 'package:restaurantapp/core/constants/asset_source.dart';
 import 'package:restaurantapp/core/network/service_locator/service_locator.dart';
 import 'package:restaurantapp/features/app_status/cubit/app_status_cubit.dart';
@@ -88,7 +89,28 @@ class _NewDashboardScreenState extends State<NewDashboardScreen> {
                               status.tableReservation.toString() == "1",
                         );
                       }),
-                      SizedBox(height: 30.h),
+                      SizedBox(height: 15.h),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            AppRoutes.reviewScreen,
+                          );
+                        },
+                        child: Text(
+                          "Customer Reviews",
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    color: Colors.white.withOpacity(0.9),
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.5,
+                                    fontSize: 15,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.white,
+                                  ),
+                        ),
+                      ),
+                      SizedBox(height: 15.h),
                       FooterWidget(
                         isBlacked: false,
                       ),

@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurantapp/app/custom_widgets/screen_padding.dart';
 import 'package:restaurantapp/core/constants/app_colors.dart';
+import 'package:restaurantapp/core/extensions/cached_network_extension.dart';
 import 'package:restaurantapp/features/indian_nepalese_food/model/indian_nepalese_food_model.dart';
 
 class FoodPickerWidget extends StatelessWidget {
@@ -34,11 +36,17 @@ class FoodPickerWidget extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Container(
-                  height: 90.w,
+                CachedNetworkImage(
+                  imageUrl: item?.imageUrl ?? "",
+                  height: 90.h,
                   width: 90.w,
-                  color: const Color(0xFFE3E1E1),
-                ),
+                  fit: BoxFit.cover,
+                ).withPlaceHolder(),
+                // Container(
+                //   height: 90.w,
+                //   width: 90.w,
+                //   color: const Color(0xFFE3E1E1),
+                // ),
                 SizedBox(
                   width: 10.w,
                 ),

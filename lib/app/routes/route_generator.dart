@@ -11,6 +11,7 @@ import 'package:restaurantapp/features/checkout/screens/checkout_screen.dart';
 import 'package:restaurantapp/features/checkout/screens/complete_order_screen.dart';
 import 'package:restaurantapp/features/checkout/screens/order_completed_screen.dart';
 import 'package:restaurantapp/features/contact_us/contact_us_screen.dart';
+import 'package:restaurantapp/features/dashboard/screens/customer_review_screen.dart';
 import 'package:restaurantapp/features/dashboard/screens/new_dashboard_screen.dart';
 import 'package:restaurantapp/features/history/cubit/user_history_cubit.dart';
 import 'package:restaurantapp/features/history/screens/user_history_screen.dart';
@@ -149,6 +150,11 @@ class RouteGenerator {
             reservation: arguments as ReservationSuccessModel,
           ),
         );
+      case AppRoutes.reviewScreen:
+        return CupertinoPageRoute(
+          builder: (context) => CustomerReviewScreen(),
+        );
+
       default:
         return CupertinoPageRoute(
           builder: (context) => const NewDashboardScreen(),

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurantapp/core/constants/asset_source.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 extension ImageExtension on CachedNetworkImage {
   withPlaceHolder() {
@@ -9,13 +9,17 @@ extension ImageExtension on CachedNetworkImage {
       imageUrl: imageUrl,
       height: height,
       width: width,
-      placeholder: (context, url) => Image.asset(
-        AssetSource.backgroundImage,
+      placeholder: (context, url) => Container(
+        height: 90.w,
+        width: 90.w,
+        color: const Color(0xFFE3E1E1),
       ),
       fit: fit,
       cacheKey: cacheKey,
-      errorWidget: (context, url, error) => Image.asset(
-        AssetSource.backgroundImage,
+      errorWidget: (context, url, error) => Container(
+        height: 90.w,
+        width: 90.w,
+        color: const Color(0xFFE3E1E1),
       ),
     );
   }

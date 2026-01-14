@@ -25,4 +25,5 @@ class AppRoutes {
       "/reservation-contact-detail-screen";
   static const String confirmReservationScreen = "/confirm-reservation-screen";
   static const String reservationSuccessScreen = "/reservation-success-screen";
+  static const String reviewScreen = '/review-screen';
 }
