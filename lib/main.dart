@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:app_links/app_links.dart';
+import 'package:chucker_flutter/chucker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -129,6 +130,7 @@ class MyApp extends StatelessWidget {
                 child: widget!,
               );
             },
+            navigatorObservers: [ChuckerFlutter.navigatorObserver],
           );
         },
       ),

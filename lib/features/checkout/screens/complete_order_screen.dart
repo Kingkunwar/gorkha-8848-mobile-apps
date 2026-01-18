@@ -5,7 +5,6 @@ import 'package:restaurantapp/app/custom_widgets/custom_appbar.dart';
 import 'package:restaurantapp/app/custom_widgets/ease_in_widget.dart';
 import 'package:restaurantapp/app/custom_widgets/primary_button.dart';
 import 'package:restaurantapp/app/custom_widgets/screen_padding.dart';
-import 'package:restaurantapp/app/functions/get_background_decoration.dart';
 import 'package:restaurantapp/app/functions/navigation_functions.dart';
 import 'package:restaurantapp/app/functions/show_toast.dart';
 import 'package:restaurantapp/app/routes/app_routes.dart';
@@ -87,8 +86,7 @@ class _CompleteOrderScreenState extends State<CompleteOrderScreen> {
                           10.horizontalSpace,
                           Builder(
                             builder: (context) {
-                              num discount =
-                                  (num.parse(state.discount) / 100) *
+                              num discount = (num.parse(state.discount) / 100) *
                                   num.parse(state.total);
                               return SizedBox(
                                 width: 50.w,

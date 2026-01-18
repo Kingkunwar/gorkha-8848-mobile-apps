@@ -87,13 +87,13 @@ class _ReservationSuccessScreenState extends State<ReservationSuccessScreen> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white.withOpacity(0.9),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.primaryColor.withOpacity(0.2),
-                          blurRadius: 20,
-                          spreadRadius: 5,
-                        ),
-                      ],
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: AppColors.primaryColor.withOpacity(0.2),
+                      //     blurRadius: 20,
+                      //     spreadRadius: 5,
+                      //   ),
+                      // ],
                     ),
                     child: Center(
                       child: Lottie.asset(
@@ -109,7 +109,7 @@ class _ReservationSuccessScreenState extends State<ReservationSuccessScreen> {
                     "Reservation Successful!",
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: AppColors.primaryColor,
+                          color: Colors.green,
                         ),
                     textAlign: TextAlign.center,
                   ),
@@ -121,7 +121,44 @@ class _ReservationSuccessScreenState extends State<ReservationSuccessScreen> {
                         ),
                     textAlign: TextAlign.center,
                   ),
-                  40.verticalSpace,
+                  20.verticalSpace,
+                  // Information Message Card
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(16.w),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(12.r),
+                      border: Border.all(
+                        color: AppColors.primaryColor.withOpacity(0.3),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.info_outline,
+                          color: AppColors.primaryColor,
+                          size: 24.sp,
+                        ),
+                        SizedBox(width: 12.w),
+                        Expanded(
+                          child: Text(
+                            "An information email with your reservation details will be sent to your email address. Please check your inbox and junk folder.",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: AppColors.textColor,
+                                  height: 1.5,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  20.verticalSpace,
                   // Reservation Details Card
                   Container(
                     width: double.infinity,
@@ -206,43 +243,7 @@ class _ReservationSuccessScreenState extends State<ReservationSuccessScreen> {
                     ),
                   ),
                   30.verticalSpace,
-                  // Information Message Card
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(16.w),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12.r),
-                      border: Border.all(
-                        color: AppColors.primaryColor.withOpacity(0.3),
-                        width: 1,
-                      ),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.info_outline,
-                          color: AppColors.primaryColor,
-                          size: 24.sp,
-                        ),
-                        SizedBox(width: 12.w),
-                        Expanded(
-                          child: Text(
-                            "An information email with your reservation details will be sent to your email address. Please check your inbox and junk folder.",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                  color: AppColors.textColor,
-                                  height: 1.5,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  40.verticalSpace,
+
                   PrimaryButton(
                     buttonTitle: "Back to Home",
                     onTap: () {

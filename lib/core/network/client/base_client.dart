@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:chucker_flutter/chucker_flutter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
@@ -109,7 +110,7 @@ class BaseClientImpl extends BaseClient {
           sendTimeout: const Duration(seconds: 40),
           receiveTimeout: const Duration(seconds: 40),
         ),
-        data: jsonEncode(data) ,
+        data: jsonEncode(data),
       );
     } on DioException catch (e) {
       debugPrint(e.toString());
@@ -131,6 +132,7 @@ addCertificate(Dio dio) {
 }
 
 addInterceptors(Dio dio) {
+  dio.interceptors.add(ChuckerDioInterceptor());
   if (kDebugMode) {
     dio.interceptors.add(
       PrettyDioLogger(
